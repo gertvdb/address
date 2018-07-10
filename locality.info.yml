@@ -1,0 +1,7 @@
+name: Locality
+description: Provide a standard way to store a locality
+package: Models
+type: module
+core: 8.x
+dependencies:
+  - drupal:locale

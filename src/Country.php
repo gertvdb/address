@@ -2,7 +2,7 @@
 
 namespace Drupal\locality;
 
-use Drupal\Core\Locale\CountryManager;
+use Drupal\Core\Locale\CountryManagerInterface;
 use InvalidArgumentException;
 
 /**
@@ -13,6 +13,13 @@ use InvalidArgumentException;
 final class Country implements CountryInterface {
 
   /**
+   * A country manager.
+   *
+   * @var \Drupal\Core\Locale\CountryManagerInterface
+   */
+  protected $countryManager;
+
+  /**
    * The country code.
    *
    * @var string|null
@@ -20,17 +27,18 @@ final class Country implements CountryInterface {
   protected $countryCode;
 
   /**
-   * Constructor.
+   * Country constructor.
+   *
+   * @param string|null $country_code
+   *   The country code.
+   * @param \Drupal\Core\Locale\CountryManagerInterface $country_manager
+   *   The country manager.
    *
    * @throws \InvalidArgumentException
    */
-  public function __construct(string $country_code = NULL) {
-    if (!in_array($country_code, array_keys(CountryManager::getStandardList()))) {
-      throw new InvalidArgumentException(
-        'No valid country code provided!'
-      );
-    }
-    $this->countryCode = strtoupper($country_code);
+  public function __construct(string $country_code = NULL, CountryManagerInterface $country_manager) {
+    $this->countryManager = $country_manager;
+    $this->setCountryCode($country_code);
   }
 
   /**
@@ -41,18 +49,27 @@ final class Country implements CountryInterface {
   }
 
   /**
-   * {@inheritdoc}
+   * Set the country code.
+   *
+   * @param string|null $country_code
+   *   The country code.
+   *
+   * @throws \InvalidArgumentException
    */
-  public function getIso3CountryCode() {
-    $list = Iso3CountryManager::getIso2ToIso3List();
-    return isset($list[$this->countryCode]) ? $list[$this->countryCode] : NULL;
+  public function setCountryCode(string $country_code) {
+    if (!in_array($country_code, array_keys($this->countryManager->getList()))) {
+      throw new InvalidArgumentException(
+        'No valid country code provided!'
+      );
+    }
+    $this->countryCode = strtoupper($country_code);
   }
 
   /**
    * {@inheritdoc}
    */
   public function getName() {
-    $list = CountryManager::getStandardList();
+    $list = $this->countryManager->getList();
     return isset($list[$this->getCountryCode()]) ? $list[$this->getCountryCode()] : NULL;
   }
 

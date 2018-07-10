@@ -1,0 +1,17 @@
+{
+  "name": "gertvdb/locality",
+  "type": "drupal-module",
+  "description": "Provide a standard way to store an locality",
+  "keywords": ["address"],
+  "homepage": "https://github.com/gertvdb/locality",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gert van den Buijs",
+      "email": "gertvandenbuijs@hotmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  }
+}
