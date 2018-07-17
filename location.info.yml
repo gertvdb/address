@@ -1,0 +1,10 @@
+name: Location
+description: Provide a standard way to store a location
+package: Models
+type: module
+core: 8.x
+dependencies:
+  - drupal:locale
+  - country
+  - continent
+  - coordinates

@@ -1,9 +1,9 @@
 {
-  "name": "gertvdb/locality",
+  "name": "gertvdb/location",
   "type": "drupal-module",
-  "description": "Provide a standard way to store an locality",
+  "description": "Provide a standard way to store a location",
   "keywords": ["address"],
-  "homepage": "https://github.com/gertvdb/locality",
+  "homepage": "https://github.com/gertvdb/location",
   "license": "MIT",
   "authors": [
     {
@@ -12,6 +12,9 @@
     }
   ],
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.1",
+    "gertvdb/coordinates": "^1.0",
+    "gertvdb/country": "^1.0",
+    "gertvdb/continent": "^1.0"
   }
 }
