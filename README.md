@@ -35,19 +35,8 @@ $collection = new LocationCollection([$location]);
 
 ```
 
-Useful methods.
-
-```
-
-use Drupal\country\CountryCollection;
-
-$world = CountryCollection::createWorldCollection();
-$europe = CountryCollection::createContinentCollection('EU');
-
-```
-
 # Release notes #
 
 `1.0.0`
 * Basic setup of the module.
-* Provide country and country collection class.
+* Provide location and location collection class.
