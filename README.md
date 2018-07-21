@@ -33,6 +33,7 @@ $location = new Location(
 );
 $collection = new LocationCollection([$location]);
 
+
 ```
 
 # Release notes #

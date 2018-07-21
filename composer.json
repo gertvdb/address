@@ -11,6 +11,12 @@
       "email": "gertvandenbuijs@hotmail.com"
     }
   ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
   "require": {
     "php": ">=7.1",
     "gertvdb/coordinates": "^1.0",
