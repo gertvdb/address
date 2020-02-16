@@ -74,9 +74,17 @@ interface LocationInterface {
   public function getCity();
 
   /**
+   * Get the province.
+   *
+   * @return null|string
+   *   The province or locality.
+   */
+  public function getProvince();
+
+  /**
    * Get the Country object.
    *
-   * @return \Drupal\country\CountryInterface|null
+   * @return \Drupal\iso3166\CountryInterface|null
    *   A country object.
    */
   public function getCountry();
@@ -84,7 +92,7 @@ interface LocationInterface {
   /**
    * Get the Continent object.
    *
-   * @return \Drupal\continent\ContinentInterface|null
+   * @return \Drupal\iso3166\ContinentInterface|null
    *   A continent object.
    */
   public function getContinent();
@@ -95,6 +103,6 @@ interface LocationInterface {
    * @return \Drupal\coordinates\CoordinateInterface|null
    *   A continent object.
    */
-  public function getCoordinate();
+  public function getCoordinates();
 
 }
