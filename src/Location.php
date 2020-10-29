@@ -103,21 +103,21 @@ final class Location implements LocationInterface {
   /**
    * A country object.
    *
-   * @var \Drupal\iso3166\CountryInterface
+   * @var CountryInterface
    */
   protected $country;
 
   /**
    * A continent object.
    *
-   * @var \Drupal\iso3166\ContinentInterface
+   * @var ContinentInterface
    */
   protected $continent;
 
   /**
    * A coordinate object.
    *
-   * @var \Drupal\coordinates\CoordinateInterface
+   * @var CoordinateInterface
    */
   protected $coordinate;
 
@@ -142,14 +142,27 @@ final class Location implements LocationInterface {
      *   The province of the locality.
      * @param string|null $city
      *   The city or locality.
-     * @param \Drupal\iso3166\CountryInterface|null $country
+     * @param CountryInterface|null $country
      *   The country object.
-     * @param \Drupal\iso3166\ContinentInterface|null $continent
+     * @param ContinentInterface|null $continent
      *   The continent object.
-     * @param \Drupal\coordinates\CoordinateInterface|null $coordinate
+     * @param CoordinateInterface|null $coordinate
      *   The continent object.
      */
-  public function __construct(string $name = NULL, string $specifications = NULL, string $street_name = NULL, string $street_number = NULL, string $street_addition = NULL, string $postal_code = NULL, string $district = NULL, string $province = NULL, string $city = NULL, CountryInterface $country = NULL, ContinentInterface $continent = NULL, CoordinateInterface $coordinate = NULL) {
+  public function __construct(
+    string $name = NULL,
+    string $specifications = NULL,
+    string $street_name = NULL,
+    string $street_number = NULL,
+    string $street_addition = NULL,
+    string $postal_code = NULL,
+    string $district = NULL,
+    string $province = NULL,
+    string $city = NULL,
+    CountryInterface $country = NULL,
+    ContinentInterface $continent = NULL,
+    CoordinateInterface $coordinate = NULL
+  ) {
     $this->name = $this->setName($name);
     $this->specifications = $this->setSpecifications($specifications);
     $this->streetName = $this->setStreetName($street_name);
@@ -296,7 +309,7 @@ final class Location implements LocationInterface {
    * @param string $city
    *   The city or locality.
    */
-  public function setCity(?string $city) {
+  public function setCity(string $city) {
     $this->city = $city && !empty($city) ? $city : NULL;
   }
 
@@ -313,7 +326,7 @@ final class Location implements LocationInterface {
    * @param string $province
    *   The province or locality.
    */
-  public function setProvince(?string $province) {
+  public function setProvince(string $province) {
     $this->province = $province && !empty($province) ? $province : NULL;
   }
 
@@ -327,7 +340,7 @@ final class Location implements LocationInterface {
   /**
    * Set the Country object.
    *
-   * @param \Drupal\iso3166\CountryInterface|null $country
+   * @param CountryInterface|null $country
    *   A country object.
    */
   public function setCountry($country) {
@@ -344,7 +357,7 @@ final class Location implements LocationInterface {
   /**
    * Set the Continent object.
    *
-   * @param \Drupal\iso3166\ContinentInterface|null $continent
+   * @param ContinentInterface|null $continent
    *   A continent object.
    */
   public function setContinent($continent) {
@@ -361,7 +374,7 @@ final class Location implements LocationInterface {
   /**
    * Set the Coordinate object.
    *
-   * @param \Drupal\coordinates\CoordinateInterface|null $coordinate
+   * @param CoordinateInterface|null $coordinate
    *   A coordinate object.
    */
   public function setCoordinates($coordinate) {

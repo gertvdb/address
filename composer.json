@@ -45,7 +45,7 @@
     }
   },
   "require": {
-    "gertvdb/coordinates": "^8.1.1",
+    "gertvdb/coordinates": "^8.1",
     "gertvdb/iso3166": "^8.1"
   },
   "require-dev": {
