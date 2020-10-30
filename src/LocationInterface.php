@@ -105,4 +105,12 @@ interface LocationInterface {
    */
   public function getCoordinates();
 
+  /**
+   * Get the object data as an array.
+   *
+   * @return array
+   *   The object data as an array.
+   */
+  public function toArray();
+
 }
